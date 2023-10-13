@@ -46,16 +46,23 @@
              <hr>
              <div>
                  {{> title data='WorkExperience' }}
-                 <ul>
+                 <ul>  
                      {{#each workExperience}}
                      <li>
                          {{company}} / {{title}}
                          <br>
                          {{startDate}} - {{endDate}}
                          {{#unless endDate}} (working now) {{/unless}}
+                         <br><br>
+                         <b>Responsibilities:</b>
                          <br>
-                         <br>
-                          <p>{{responsibilities}}git</p>
+                         <ul>
+                         {{#each responsibilities}}
+                              <li>
+                                {{[]}}
+                              </li>
+                         {{/each}}
+                         </ul>
                         <br>
                         <hr>
                         <b>{{year_founded}}  {{industry}}</b>
