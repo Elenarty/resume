@@ -1,0 +1,77 @@
+{{!-- 
+Це код container файлу для skills сторінки, 
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/skills"
+--}}
+
+<div>
+    <section>
+        <h1>{{name}}</h1>
+        <p> {{description}}<br>
+            <h3>price: {{price}}</h3></p>
+        <i>category: {{category}}</i>
+        <br><hr>
+        <h3>features:</h3>
+           {{#with features}}
+            <span>
+              processor:          
+                 {{#each processor}}
+                    {{ [] }} /           
+                 {{/each}}
+                 <br>
+              memory:             
+                 {{#each memory}}
+                    {{ [] }} /           
+                 {{/each}}
+                 <br>
+              storage:             
+                 {{#each storage}}
+                    {{ [] }} /           
+                 {{/each}}
+                 <br>
+              display:             
+                 {{#each display}}
+                    {{ [] }} /           
+                 {{/each}}
+                 <br>
+              graphics:             
+                 {{#each graphics}}
+                    {{ [] }} /           
+                 {{/each}}
+                 <br><br>
+              ports: 
+                <ul>            
+                 {{#each ports}}
+                    <li>
+                        {{type}} / {{count}} / {{#each features}} {{[]}} / {{/each}} 
+                    </li>      
+                 {{/each}}
+                 </ul>
+              battery:             
+                 {{#each display}}
+                    {{ [] }} /           
+                 {{/each}}
+                 <br>
+              weight: {{weight}}
+                <br>
+              dimensions:             
+                 {{#each dimensions}}
+                    {{ [] }} /           
+                 {{/each}}
+                 <br>
+              operating system: {{operating_system}}
+                 <br><br>
+              accessories: 
+                <ul>           
+                 {{#each accessories}}
+                    <li>  {{name}} / {{price}}$  </li>         
+                 {{/each}}
+                 </ul> 
+             </span>  
+            {{/with}}
+     </section>
+</div>
+
+{{!-- 
+    Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+    Адже наш layout/default.hbs має вже структуру HTML
+--}}
