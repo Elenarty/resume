@@ -1,0 +1,93 @@
+<div>
+    <main>
+        <section>
+            <h1>{{name}}</h1>
+            <br><hr>
+            <ul> 
+             {{#each users}}
+                <li> 
+                    <h3>{{name}} <small>(id:{{id}})</small></h3>
+                        gender: {{gender}} || age: {{age}}<br>
+                    <details>
+                       <summary>friends</summary>        
+                       {{#each friends}}
+                       <ul>
+                          <li>
+                              <h6>{{name}} <small>(id:{{id}})</small></h6>
+                                  gender: {{gender}} || age: {{age}}<br>
+                              <details>
+                                  <summary> mutual friends</summary>        
+                                   {{#each mutual_friends}}
+                                   <ul>
+                                       <li>
+                                           <h6>{{name}} <small>(id:{{id}})</small></h6>
+                                               gender: {{gender}} || age: {{age}}<br>
+                                            <details>
+                                                  <summary> mutual friends</summary>        
+                                                  {{#each mutual_friends}}
+                                                  <ul>
+                                                      <li>
+                                                            <h6>{{name}} <small>(id:{{id}})</small></h6>
+                                                               gender: {{gender}} || age: {{age}}<br>
+                                                      </li>
+                                                  </ul>
+                                                   {{/each}}
+                                             </details>
+                                        </li>
+                                    </ul>
+                                    {{/each}}
+                                </details>
+                                 <details>
+                                    <summary>groups</summary>        
+                                     {{#each groups}}
+                                    <ul>
+                                        <li>
+                                            <h6>{{name}} <small>(id:{{id}})</small></h6>
+                                                {{description}} <br>
+                                             <details>
+                                                <summary>members</summary>        
+                                                {{#each members}}
+                                                 <ul>
+                                                    <li>
+                                                        <h6>{{name}} <small>(id:{{id}})</small></h6>
+                                                            gender: {{gender}} || age: {{age}}<br>
+                                                    </li>
+                                                 </ul>
+                                                {{/each}}
+                                             </details>
+                                        </li><br>
+                                    </ul>
+                                     {{/each}}
+                                 </details>
+                            </li>
+                        </ul>
+                       {{/each}}
+                    </details>
+                    <details>
+                       <summary>groups</summary>        
+                       {{#each groups}}
+                       <ul>
+                          <li>
+                              <h6>{{name}} <small>(id:{{id}})</small></h6>
+                                    {{description}} <br>
+                              <details>
+                                  <summary>members</summary>        
+                                   {{#each members}}
+                                   <ul>
+                                       <li>
+                                           <h6>{{name}} <small>(id:{{id}})</small></h6>
+                                               gender: {{gender}} || age: {{age}}<br>
+                                        </li>
+                                    </ul>
+                                    {{/each}}
+                                </details>
+                            </li>
+                        </ul>
+                       {{/each}}
+                    </details>        
+                </li><br>
+             {{/each}}
+            </ul>
+        </section>
+    </main>
+</div>
