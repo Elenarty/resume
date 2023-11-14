@@ -1149,7 +1149,7 @@ router.get('/bootstrap', function (req, res) {
 
   //            ↙ cюди вводимо назву файлу з сontainer
   res.render('bootstrap', {
-    layout: 'bootstrap',
+    layout: 'basic',
   })
   //                  ↑↑ сюди вводимо JSON дані
 })
