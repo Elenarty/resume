@@ -1,0 +1,122 @@
+<main>
+    <section class="grid text-center">
+        {{#with navigation}}
+        <nav class="navbar navbar-expand-lg bg-body-tertiary card ms-0 ">
+            <div class="container-fluid">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="nav"> 
+                {{#each links}}
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{{href}}" target="blank">{{text}}</a>
+                </li>
+                {{/each}}      
+                <li class="nav-item">
+                    <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                </li>        
+            </ul> 
+        </div>
+            </div>
+        </nav>
+        {{/with}}
+        {{#with newsBlock}}
+        <div class="header">
+            <h2>{{title}}</h2>
+        </div> 
+        <div class="card-group text-start mt-0">
+            <div class="row row-cols-1 row-cols-4">
+            {{#each cards}}
+               <div class="col-3 g-2">
+                   <div class="card text-bg-dark">
+                        <div class="card-header h-30">
+                            {{title}}
+                            {{#if isTop}} <span class="badge text-bg-danger">top</span> {{/if}}
+                            {{#if isNew}} <span class="badge text-bg-success">new</span> {{/if}}
+                        </div>
+                        <div class="card-body"> 
+                             <p class="card-text mt-3">{{description}}</p>
+                        </div>
+                    </div>
+                </div>
+            {{/each}}
+            </div>
+        </div>
+        {{/with}}
+    </section>
+    <hr class="m-4"> 
+    <section class="grid text-start">
+        {{#with goodsBlock}}
+            <ul class="nav nav-tabs">
+                 <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Electronics</a></li>
+                 <li class="nav-item">
+                     <a class="nav-link" href="#">Home & Kitchen</a></li>
+                 <li class="nav-item">
+                     <a class="nav-link" href="#">Clothing & Accessories</a></li>
+                 <li class="nav-item">
+                     <a class="nav-link disabled" aria-disabled="true">Toys & Games</a>
+                 </li>
+            </ul>
+            <div class="card-group py-2 mt-2">
+               <div class="row row-cols-1 row-cols-md-3">
+               {{#each cards}}
+                  <div class="col-4 g-2 py-2">
+                    <div class="card">
+                        <img class="card-img-top h-40" src="{{image}}"> 
+                        <div class="card-body">
+                             <h5 class="card-title">
+                                {{title}}
+                                {{#if isHot}} <span class="badge text-bg-warning text-uppercase">hot!</span> {{/if}}
+                                {{#if isNew}} <span class="badge text-bg-primary">new</span> {{/if}}
+                             </h5>
+                             <p class="card-text">{{description}}</p>
+                        </div>
+                    </div>
+                  </div>
+               {{/each}}
+               </div>
+            </div>
+        {{/with}}
+    </section>
+    <hr> 
+    <section class="text-start">
+        {{#with subscribe}}
+           <div class="card w-100 text-bg-dark">
+                <div class="card-body">
+                    <h2 class="card-title">{{header}}</h2>
+                    <p class="card-text mb-1">{{description}}</p>
+                    {{#each buttons}}
+                    <a href="{{button.link}}" class="btn btn-primary mt-2" target="blank">{{text}}</a><br>
+                    {{/each}}
+                </div>
+            </div>
+        {{/with}}
+    </section>
+    <hr class="m-4">
+    <section class="text-center">
+        {{#with service}} 
+            <div class="card w-100 text-bg-success">
+                <div class="card-body">
+                    <h2 class="card-title">{{title}}</h2>
+                    <p class="card-text">{{description}}</p>
+                    {{#each buttons}}
+                     <a href="{{link}}" class="btn btn-primary" target="blank">{{text}}</a>
+                    {{/each}} 
+                </div>
+            </div>
+        {{/with}}
+    </section>
+    <hr class="m-4">
+    <section class="grid text-start">
+        <div class="btn-group justify-content ">
+               {{#each footer}}
+                <ul class="nav flex-column d-grid gap-3 h-w-100">
+                   {{#each this}}  
+                     <li class="nav-item">
+                         <a class="link text-decoration-none m-2 {{#if @last}}nav-link disabled p-0{{/if}}" href="{{[link]}}" target="blank" >{{[text]}}</a>
+                     </li>
+                   {{/each}}
+                </ul>
+              {{/each}}
+        </div>
+    </section> 
+</main>
