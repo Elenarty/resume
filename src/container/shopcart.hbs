@@ -1,0 +1,107 @@
+<main>
+    <section class="grid text-center">
+        {{#with navigation}}
+        <nav class="navbar navbar-expand-lg bg-body-tertiary card ms-0 ">
+            <div class="container-fluid">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="nav"> 
+                {{#each links}}
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{{href}}" target="blank">{{text}}</a>
+                </li>
+                {{/each}}      
+                <li class="nav-item">
+                    <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                </li>        
+            </ul> 
+        </div>
+            </div>
+        </nav>
+        {{/with}}
+        {{#with header}}
+        <div class="header text-start my-3">
+            <h1>{{title}}</h1>
+            {{#with button}}
+                <a href="{{link}}" class="btn btn-outline-secondary" target="blank">{{text}}</a>
+            {{/with}} 
+        </div> 
+        {{/with}}
+    </section>
+    <hr class="m-4"> 
+    <section class="text-start">
+       {{#each goodsBlock}}
+        <div class="card-group text-start mt-2">
+            {{> GoodsItem}}
+        </div>
+        {{/each}}
+    </section>
+    <hr class="m-4"> 
+    <section class="grid text-start">
+            {{#with total}}
+        <div class="row row-cols-1">
+            <h3>{{title}}</h3>
+            <p class="display-6 pt-2"><strong>{{amount}}</strong></p>
+             <p class="small">{{delivery}}</p>
+             <div class="col col-5">
+            {{#each buttons}}
+               {{#if isSuccess}} <a href="{{link}}" class="btn btn-success my-2" target="blank">{{text}}</a>{{/if}}
+               {{#if isOutline}} <a href="{{link}}" class="btn btn-outline-success my-2" target="blank">{{text}}</a>{{/if}}
+            {{/each}} 
+            </div>
+        </div> 
+        {{/with}}
+    </section>
+    <hr class="m-4"> 
+    <section class="grid text-center">
+        {{#with goodsOtherBlock}}
+            <h3>{{title}}</h3>
+            <div class="card-group text-start py-2 mt-2">
+               <div class="row row-cols-1 row-cols-md-3">
+               {{#each cards}}
+                  <div class="col-4 g-2 py-2">
+                    <div class="card">
+                        <img class="card-img-top h-40" src="{{image}}"> 
+                        <div class="card-body">
+                             <h5 class="card-title">
+                                {{title}}
+                                {{#if isHot}} <span class="badge text-bg-warning text-white text-uppercase">hot!</span> {{/if}}
+                                {{#if idNew}} <span class="badge text-bg-primary">new</span> {{/if}}
+                             </h5>
+                             <p class="card-text">{{description}}</p>
+                        </div>
+                    </div>
+                  </div>
+               {{/each}}
+               </div>
+            </div>
+        {{/with}}
+    </section>
+    <hr class="m-4 p-2"> 
+    <section class="text-start">
+        {{#with subscribe}}
+           <div class="card w-100 text-bg-dark mb-3">
+                <div class="card-body">
+                    <h2 class="card-title">{{header}}</h2>
+                    <p class="card-text mb-1">{{description}}</p>
+                    {{#each buttons}}
+                    <a href="{{link}}" class="btn btn-primary mt-2" target="blank">{{text}}</a><br>
+                    {{/each}}
+                </div>
+            </div>
+        {{/with}}
+    </section>
+    <hr class="m-4">
+    <section class="grid text-start">
+        <div class="btn-group justify-content ">
+               {{#each footer}}
+                <ul class="nav flex-column d-grid gap-3 h-w-100">
+                   {{#each this}}  
+                     <li class="nav-item">
+                         <a class="link text-decoration-none m-2 {{#if @last}}nav-link disabled p-0{{/if}}" href="{{[link]}}" target="blank" >{{[text]}}</a>
+                     </li>
+                   {{/each}}
+                </ul>
+              {{/each}}
+        </div>
+    </section> 
+</main>
