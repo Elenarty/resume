@@ -1,0 +1,41 @@
+<div class="card align-items-end p-3">
+   <div class="card col-12 p-3 mb-2">
+     {{#with title}}
+        <h4 class="my-1">{{userName}}</h4>
+        <p>{{caption}}</p>
+         <p>{{date}}</p>
+     {{/with}}
+     <hr>
+     {{#with reviewBody}} 
+        <div class="row body">
+           {{#with seller}}
+                <p>{{title}}: {{value}}</p>
+           {{/with}} 
+           {{#with rating}}
+                <p>{{title}}: {{value}}</p>
+           {{/with}}
+                <p>{{text}}</p>
+           {{#with advantages}}
+                <b>{{title}}:</b>
+                <p>{{text}}</p>
+           {{/with}} 
+           {{#with disadvantages}}
+                <b>{{title}}:</b>
+                <p>{{text}}</p>
+           {{/with}}
+           {{#each images}}
+                <div class="col-3">
+                    <img class="card-img" src="{{[]}}"> 
+                </div>
+           {{/each}}
+        </div>
+    </div>
+     {{#each coments}}
+    <div class="card col-11 m-3 px-3 me-1">
+        <h4 class="my-1">{{userName}}</h4>
+        <p>{{date}}</p>
+        <p>{{text}}</p>
+    </div>
+    {{/each}}
+    {{/with}}
+ </div>
