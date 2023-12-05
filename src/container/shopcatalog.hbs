@@ -1,0 +1,138 @@
+<main class="grid col-12 m-p-0">
+    <section class=" nav text-start w-100">
+        {{#with navigation}}
+        <nav class="navbar navbar-expand-lg bg-body-tertiary card ms-0 w-100 ">
+            <div class="container-fluid">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="nav"> 
+                       {{#each links}}
+                              <a class="nav-link active {{#if @last}}nav-link disabled{{/if}}" aria-current="page" href="{{href}}" target="blank">{{text}}</a>
+                       {{/each}}          
+                    </ul> 
+                </div>
+            </div>
+        </nav>
+        {{/with}} 
+    </section>
+    <section class="nav m-p-0">
+         <nav class="m-1" aria-label="breadcrumb"> 
+            {{#with breadcrumb}}
+                <ol class="breadcrumb">
+                     <li class="breadcrumb-item"><a href="https://github.com/">Головна</a></li>
+                     <li class="breadcrumb-item"><a href="https://www.google.com/">Комп'ютери та ноутбуки</a></li>
+                     <li class="breadcrumb-item active" aria-current="page">Ноутбуки</li>
+                </ol>
+            {{/with}}
+         </nav>
+    </section>
+    <section class="mb-3">
+        <h1>{{header}}</h1>
+        <div class="btn-toolbar mt-4" role="toolbar" aria-label="Toolbar with button groups">
+            {{#each sortBlock}} 
+               <div class="btn-group">
+                    <button type="button" class="btn btn-outline-secondary dropdown-toggle me-3" data-bs-toggle="dropdown" aria-expanded="false">{{placeholder}}</button>
+                       <ol class="dropdown-menu">
+                          {{#each options}}
+                             <li><a class="dropdown-item" href="#">{{value}}. {{text}}</a></li>
+                          {{/each}}
+                       </ol>   
+               </div>
+             {{/each}}
+        </div>
+    </section>
+    <section class="container text-start">
+        <div class="row row-col-2 align-items-start">
+            <div class="col-4">
+                {{#with filterBlock}}
+                   <div class="card p-3">
+                    {{#with sellers}}
+                         <p>{{title}}</p>
+                         <div class="list">
+                            {{#each list}}
+                            <div class="form-check">
+                                 <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                 <label class="form-check-label" for="flexCheckDefault">
+                                 {{value}}
+                                 </label>
+                            </div>
+                            {{/each}}
+                         </div>
+                    {{/with}}
+                    <hr>
+                    {{#with brands}}
+                         <p>{{title}}</p>
+                         <input type="search" class="form-control mb-2" placeholder="{{input.placeholder}}" aria-label="search" aria-describedby="button-addon">
+                         <div class="list">
+                            {{#each options}}
+                            <div class="form-check">
+                                 <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                 <label class="form-check-label" for="flexCheckDefault">
+                                 {{value}}
+                                 </label>
+                            </div>
+                            {{/each}}
+                         </div>
+                    {{/with}}
+                    <hr>
+                    {{#with price}}
+                         <p>{{title}}</p>
+                         <input type="" class="form-control mb-2" placeholder="{{range.from}}" aria-label="search" aria-describedby="button-addon">
+                         <input type="search" class="form-control mb-2" placeholder="{{range.to}}" aria-label="search" aria-describedby="button-addon">
+                          <button type="button" class="btn btn-outline-secondary me-3 col-4" aria-current="page" href="{{button.link}}" target="blank">{{button.text}}</button>
+                    {{/with}}
+                    {{#each filterList}}
+                         <hr>
+                         <p>{{title}}</p>
+                         <div class="list">
+                            {{#each options}}
+                            <div class="form-check">
+                                 <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                 <label class="form-check-label" for="flexCheckDefault">
+                                 {{value}}
+                                 </label>
+                            </div>
+                            {{/each}}
+                         </div>
+                    {{/each}}
+                 </div>
+                {{/with}}
+            </div>
+            <div class="grid col-8">
+                <div class="row row-col-2 align-items-start">
+                   {{#each goodsList}}
+                        <div class="col-6 m-p-0">
+                            {{> catalogItem}}
+                        </div> 
+                   {{/each}}
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="container text-center px-0">
+         {{#with service}}
+           <div class="card w-100 text-bg-success my-3">
+                <div class="card-body">
+                    <h2 class="card-title">{{title}}</h2>
+                    <p class="card-text mb-1">{{description}}</p>
+                    {{#each buttons}}
+                    <a href="{{link}}" class="btn btn-primary mt-2" target="blank">{{text}}</a><br>
+                    {{/each}}
+                </div>
+            </div>
+         {{/with}}
+    </section>
+    <hr>
+    <section class="grid text-start w-100">
+        <div class="btn-group justify-content ">
+               {{#each footer}}
+                <ul class="nav flex-column d-grid gap-3 h-w-100">
+                   {{#each this}}  
+                     <li class="nav-item me-4">
+                         <a class="link text-decoration-none mb-2 {{#if @last}}nav-link disabled p-0{{/if}}" href="{{[link]}}" target="blank" >{{[text]}}</a>
+                     </li>
+                   {{/each}}
+                </ul>
+              {{/each}}
+        </div>
+    </section> 
+</main>
